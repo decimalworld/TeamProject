@@ -1,7 +1,11 @@
 package Plant;
+import GameObject.*;
+import Script.Game;
+import Script.SpriteSheet;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 
 public class Wallnut extends Plant {
@@ -9,6 +13,7 @@ public class Wallnut extends Plant {
 	private static int objNum;
 	private static int slot=2;
 	private int hpregen=0;
+	private BufferedImage wallnut_image;
 	
 	public Wallnut(int x,int y ){
 		super((x-180)/r*r+180,(y-180)/r*r+180,50);
@@ -16,6 +21,8 @@ public class Wallnut extends Plant {
 		setH(60);
 		this.x=(x-180)/r*r+180;
 		this.y=(y-180)/r*r+180;
+		SpriteSheet ss= new SpriteSheet(Game.sprite_Sheet);
+		wallnut_image=ss.grabImage(3,0,60,80);
 	}
 	
 	public void tick(){
@@ -23,8 +30,7 @@ public class Wallnut extends Plant {
 	}
 
 	public void render(Graphics g){
-		g.setColor(new Color(105,51,0));
-		g.fillRect(x+30, y+20, width, height);
+		g.drawImage(wallnut_image, x+15, y, null);
 	}
 	
 	public static int getObjNum() {
