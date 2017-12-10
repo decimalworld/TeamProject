@@ -1,4 +1,5 @@
 package GameObject;
+import GameObject.*;
 
 import java.awt.Graphics;
 
@@ -10,7 +11,6 @@ public abstract class GameObject {
 	protected int x , y;
 	protected int damage;
 	protected int health;
-	protected ID id,id2;
 	protected int velX , velY;
 	protected long last;
 	protected int width,height;
@@ -71,15 +71,6 @@ public abstract class GameObject {
 	public void setY(int y) {
 		this.y = y;
 	}
-
-	public ID getId() {
-		return id;
-	}
-
-	public void setId(ID id) {
-		this.id = id;
-	}
-
 	public int getVelX() {
 		return velX;
 	}
