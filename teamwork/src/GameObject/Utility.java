@@ -8,7 +8,6 @@ import Plant.Plant;
 import Script.Game;
 import Script.SpriteSheet;
 import Zombie.Enemy;
-import jdk.nashorn.internal.runtime.PrototypeObject;
 
 public class Utility {
 	private static Utility utility = null;
@@ -58,19 +57,26 @@ public class Utility {
 		if (obj==ObjType.FastZombie) {
 			image=ss.grabImage(3,1,60,80);
 		}
-		if (obj==ObjType.PlayButton){
-			image=ss.grabImage(0,2,200,64);
-		}
+		
+		if (image!=null) g.drawImage(image, x+15, y, null);
+		else {
 		if (obj==ObjType.RetryButton){
-			image=ss.grabImage(0,3,200,64);
+			ss = new SpriteSheet(Game.retry_button);
+			image=ss.grabImage(0,0,200,64);
+			g.drawImage(image,x,y,null);
+			
 		}
 		if (obj==ObjType.ResumeButton){
-			image=ss.grabImage(0,4,200,64);
+			ss = new SpriteSheet(Game.resume_button);
+			image=ss.grabImage(0,0,200,64);
+			g.drawImage(image,x,y,null);
 		}
 		if (obj==ObjType.PauseButton){
-			image=ss.grabImage(0, 5, 100, 50);
+			ss = new SpriteSheet(Game.pause_button);
+			image=ss.grabImage(0, 0, 100, 50);
+			g.drawImage(image,x,y,null);
 		}
-		g.drawImage(image, x+15, y, null);
+		}
 	}
 	public boolean checkNearby(Object objClass,GameObject obj ,int x, int y){
 		if ( 	   (obj.getX()<x+10)
