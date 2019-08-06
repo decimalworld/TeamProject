@@ -23,6 +23,11 @@ public class Menu extends MouseAdapter implements screenImp{
 	
 	
 	public void render(Graphics g){
-		
+		utility.draw(ObjType.PlayButton, 450-15, 300, g);
+		Font fnt = new Font("arial",1,50);
+		g.setFont(fnt);
+		g.setColor(Color.white);
+		g.drawString("Menu", 500, 50);
 	}
 }
+
